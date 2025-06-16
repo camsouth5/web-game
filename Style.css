@@ -1,0 +1,261 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #333;
+}
+
+header {
+  background: #ffcc00;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header-img {
+  display: block;
+  margin: 2rem auto 1rem auto;
+  max-width: 22vw;
+  max-height: 12vh;
+  width: auto;
+  height: auto;
+}
+
+.header-subtitle {
+  text-align: center;
+  font-size: 2.5vw;
+  font-weight: 600;
+  color: #FFF7E1;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  text-transform: lowercase;
+}
+
+#water-display, #wps-display {
+  font-size: 2.8vw;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+  display: block;
+}
+
+#wps-display {
+  margin-top: -0.2em;
+}
+
+@media (max-width: 768px) {
+  #water-display, #wps-display {
+    font-size: 6vw;
+    line-height: 1.08;
+  }
+  #wps-display {
+    margin-top: 0.08em;
+  }
+}
+
+#clicker {
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  font-size: inherit;
+  margin-bottom: 0;
+  box-shadow: none !important;
+}
+
+.clicker-img {
+  display: block;
+  margin: 0.5rem auto 0 auto;
+  cursor: pointer;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  max-width: 18vw;
+  max-height: 18vh;
+  width: auto;
+  height: auto;
+  outline: none;
+  border: none;
+  transition: transform 0.08s cubic-bezier(.4,2,.6,1), filter 0.08s;
+}
+
+.clicker-img:active {
+  transform: scale(0.92) rotate(-2deg);
+  filter: brightness(0.92) contrast(1.1);
+}
+
+/* Split screen layout for Charity: Water Collector */
+.split-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.split {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+}
+
+.split-dark {
+  background: #1A1A1A;
+  color: #FFF7E1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.split-dark > * {
+  flex-shrink: 1;
+  max-width: 90%;
+  box-sizing: border-box;
+}
+
+.split-light {
+  background: #FFF7E1;
+  color: #1A1A1A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding-top: 2.2rem;
+}
+
+.shop {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 100vw;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+.item {
+  background: #77A8BB;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem;
+  width: 80%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.item button {
+  float: right;
+  background: #003366;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.item button:hover {
+  background: #0056b3;
+}
+
+/* Shop tabs and tables styles */
+.shop-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.shop-tab {
+  background: #003366;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  width: 100%;
+  max-width: 320px;
+  margin: 0;
+}
+
+.shop-tab.active, .shop-tab:hover {
+  background: #0056b3;
+  color: #fff;
+}
+
+.shop-table {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* Responsive: horizontal split for mobile */
+@media (max-width: 500px) {
+  .split-container {
+    flex-direction: column;
+  }
+  .split {
+    width: 100vw;
+    height: 50vh;
+    min-height: 0;
+    max-height: 50vh;
+  }
+  .split-dark, .split-light {
+    height: 50vh;
+    min-height: 0;
+    max-height: 50vh;
+    width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+  .split-light {
+    padding-top: 2.2rem;
+    overflow-y: auto;
+  }
+  .shop-table {
+    max-height: calc(50vh - 5.5rem);
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 501px) {
+  .split-container {
+    flex-direction: row;
+  }
+  .split {
+    height: 100vh;
+    width: 50vw;
+  }
+  .split-dark, .split-light {
+    width: 50vw;
+    min-width: 0;
+    max-width: 50vw;
+    height: 100vh;
+    max-height: 100vh;
+  }
+  .split-light {
+    padding-top: 2.2rem;
+    overflow-y: auto;
+  }
+  .shop-table {
+    max-height: calc(100vh - 5.5rem);
+    overflow-y: auto;
+  }
+}

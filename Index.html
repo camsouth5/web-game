@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Well Builder Game</title>
+  <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+  <div class="split-container">
+    <div class="split split-dark">
+      <img src="just water.png" alt="Header" class="header-img" />
+      <img id="clicker" class="clicker-img" src="just jer.png" alt="Collect Water" />
+      <div id="water-display">Water: 0</div>
+      <div id="wps-display">Water/sec: 0</div>
+    </div>
+    <div class="split split-light">
+      <div class="shop-tabs">
+        <button class="shop-tab active" id="production-tab" onclick="showShopTab('production')">Production</button>
+        <button class="shop-tab" id="upgrades-tab" onclick="showShopTab('upgrades')">Upgrades</button>
+      </div>
+      <div id="production-table" class="shop shop-table">
+        <div class="item">
+          <strong>Rain Collector</strong><br />
+          Produces 1 water/sec<br />
+          <button onclick="buyTower('rainCollector')">Buy (20 Water)</button>
+        </div>
+        <div class="item">
+          <strong>Hand-Dug Well</strong><br />
+          Produces 5 water/sec<br />
+          <button onclick="buyTower('handDugWell')">Buy (100 Water)</button>
+        </div>
+        <div class="item">
+          <strong>Borehole Well</strong><br />
+          Produces 20 water/sec<br />
+          <button onclick="buyTower('boreholeWell')">Buy (900 Water)</button>
+        </div>
+      </div>
+      <div id="upgrades-table" class="shop shop-table" style="display:none;">
+        <!-- Upgrades content goes here -->
+        <div class="item">
+          <strong>Upgrade Example</strong><br />
+          Increases water production by 10%<br />
+          <button disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="Script.js"></script>
+</body>
+</html>
